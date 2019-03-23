@@ -1,8 +1,10 @@
 #client side
-
+import argparse
 from google.cloud import storage
 # If you don't specify credentials when constructing the client,
 # library will look for credentials in the environment.
+
+##storage_client = storage.Client.from_service_account_json('Linguo-495a24a54222.json')
 storage_client = storage.Client()
 
 # Make an authenticated API request
