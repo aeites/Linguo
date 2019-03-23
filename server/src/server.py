@@ -11,6 +11,7 @@ class Server:
 
     # push the files from the get unprocessed files, processes the
     def processFiles(self):
+
         print("Unsupported Method")
 
     # Method to draw the text onto the image
