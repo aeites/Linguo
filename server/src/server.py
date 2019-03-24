@@ -53,15 +53,11 @@ class Server:
 # s = Server(jsonfile)
 # s.getUnprocessedFiles()
 
-<<<<<<< HEAD
-api_key = r"api-key.json"
-=======
-api_key = r"C:\Users\kelly\Desktop\translate\translate_test.json"
->>>>>>> 4adbcc7f3cd189f287d3871c27953b58852b1e7e
-sh = StorageHandler(api_key)
-localPath = r"cat.jpg"
-remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
-
-s = Server(api_key)
-
-s.processImage(localPath, remotePath, "spanish")
+# api_key = r"api-key.json"
+# sh = StorageHandler(api_key)
+# localPath = r"cat.jpg"
+# remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
+#
+# s = Server(api_key)
+#
+# s.processImage(localPath, remotePath, "spanish")
