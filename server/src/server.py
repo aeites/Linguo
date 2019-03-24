@@ -9,7 +9,12 @@ class Server:
         self.api_key_path = api_key_path
 
         self.visionHandler = VisionHandler(api_key_path)
+<<<<<<< HEAD
         #self.translationHandler = TranslationHandler(api_key_path)
+=======
+        self.translationHandler = TranslationHandler(api_key_path)
+        self.scaper = Scraper(api_key_path)
+>>>>>>> f72f5d49ad584b65d759468a6dac24262e68cd73
         self.storageHandler = StorageHandler(api_key_path)
 
     #method to get files from the bucket
@@ -26,6 +31,7 @@ class Server:
     # TODO: pass in imagePath, and language from a tuple
 
     # push the files from the get unprocessed files, processes the
+<<<<<<< HEAD
     def processImage(self, language):
         # TODO: Step 1: Get list of all image? Maybe just one for now
         #imagePath = self.storageHandler.getSingleImage()
@@ -34,6 +40,10 @@ class Server:
         imagePath = self.storageHandler.downloadOneBlob(photoChosen, getUnprocessedFiles())
 
         # Step 2: Get context for the image
+=======
+    def processImage(self, imagePath, language):
+        # Step 1: Get context for the image
+>>>>>>> f72f5d49ad584b65d759468a6dac24262e68cd73
         labelInfo = self.visionHandler.process_image(imagePath)
 
         # TODO: Step 3: Send context to web scraper for sentences

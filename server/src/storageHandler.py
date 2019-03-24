@@ -45,6 +45,7 @@ class StorageHandler:
         
         return r"gs://" + bucket.name + r"/" + file
 
+
     # TODO: get an image from the image path
     def getImage(self, imagePath):
         print("Return image file path?")
