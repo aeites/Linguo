@@ -42,7 +42,7 @@ texttospeech = {
     "Ukrainian":"uk-UA"
 }
 
-class Translate_Handler:
+class TranslationHandler:
     # create translation object
     # pass in text to translate and target language
     def __init__(self, credentials_path):
@@ -74,7 +74,7 @@ class Translate_Handler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
-t = Translate_Handler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json")
+t = TranslationHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json")
 print(t.translate('Hello, world!', 'Spanish'))
 
 # testing
