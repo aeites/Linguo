@@ -67,8 +67,8 @@ class TranslationHandler:
         return translation['translatedText']
 
     # returns language code for text-to-speech translation
-    def get_TTS_language_code(self):
-        return texttospeech[self.language]
+    def get_TTS_language_code(self, input):
+        return texttospeech[input]
 
     def authenticate(self, credentials_path):
         # Set the path to the credentials
@@ -76,7 +76,7 @@ class TranslationHandler:
 
     def getLanguageList(self):
         return list(texttotext.keys())
-        
+
 
 ## test_path = "C:\\Users\\kelly\\Desktop\\translate\\translate_test.json"
 ## t = TranslationHandler(test_path)
