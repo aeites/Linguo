@@ -7,7 +7,6 @@ from google.cloud import storage
 
 
 
-
 # If you don't specify credentials when constructing the client,
 # library will look for credentials in the environment.
 
