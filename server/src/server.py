@@ -2,6 +2,7 @@ from visionHandler import VisionHandler
 from translationHandler import TranslationHandler
 from storageHandler import StorageHandler
 from scraper import Scraper
+from overlayHandler import OverlayHandler
 
 # Linguo Google Cloud python server process
 
@@ -13,6 +14,7 @@ class Server:
         self.translationHandler = TranslationHandler(api_key_path)
         self.scraper = Scraper()
         self.storageHandler = StorageHandler(api_key_path)
+        self.overlayHandler = OverlayHandler()
 
     # push the files from the get unprocessed files, processes the
     def processImage(self, localImagePath, remoteImagePath, language):
@@ -30,12 +32,12 @@ class Server:
         print(translatedLabels)
 
         # GET DOWNLOADED IMAGE PATH
-        # TODO: Step 5: Get overlay of image
-        #overlayImagePath = self.overlayHandler.process_image(localImagePath, translatedLabels)
+        # Step 5: Get overlay of image
+        overlayImagePath = self.overlayHandler.add_overlay(localImagePath, translatedLabels)
 
-        # TODO: Step 6: Output the image + text to speech translated text
+        # Step 6: Output the image + text to speech translated text
         #self.storageHandler.uploadNewPhoto(overlayImagePath, self.storageHandle.getBucket())
-        return translatedLabels,
+        return (translatedLabels, overlayImagePath)
 
 
 # jsonfile = 'Linguo-495a24a54222.json'
