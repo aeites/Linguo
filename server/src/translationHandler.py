@@ -1,5 +1,6 @@
-from google.cloud import translate
 import os
+
+from google.cloud import translate
 
 texttotext = {
     "Danish":"da",
