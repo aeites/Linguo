@@ -74,9 +74,11 @@ class TranslationHandler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
-t = TranslationHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json")
+## test_path = "C:\\Users\\kelly\\Desktop\\translate\\translate_test.json"
+## t = TranslationHandler(test_path)
+## print(t.translate('Hello, world!', 'Spanish'))
 
-print(t.translate('Hello, world!', 'Spanish'))
+
 # testing
 
 # text to text language codes
