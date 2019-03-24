@@ -56,12 +56,12 @@ class StorageHandler:
         print("read config file")
 
 ##COMPLETED##
-jsonfile = 'Linguo-495a24a54222.json'
-s = StorageHandler(jsonfile)
-bucket = s.getBucket()
-blobs = s.getBlobs(bucket)
-s.downloadAllBlobs(blobs)
-
-##TO DO##
-file = input("Enter file name: ")
-print(s.uploadNewPhoto(file, bucket))
+# jsonfile = 'Linguo-495a24a54222.json'
+# s = StorageHandler(jsonfile)
+# bucket = s.getBucket()
+# blobs = s.getBlobs(bucket)
+# s.downloadAllBlobs(blobs)
+#
+# ##TO DO##
+# file = input("Enter file name: ")
+# print(s.uploadNewPhoto(file, bucket))

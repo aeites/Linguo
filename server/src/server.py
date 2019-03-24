@@ -14,29 +14,16 @@ class Server:
         self.scraper = Scraper()
         self.storageHandler = StorageHandler(api_key_path)
 
-    #method to get files from the bucket
-    def getUnprocessedFiles(self):
-        # returns the file names of things to process
-        bucket = self.storageHandler.getBucket()
-        blobs = self.storageHandler.getBlobs(bucket)
-        return bucket
-
-##        ######
-##        oneFile = input("Enter one file to download: ")
-##        self.storageHandler.downloadOneBlob(bucket, oneFile)
-
-    # TODO: pass in imagePath, and language from a tuple
-
     # push the files from the get unprocessed files, processes the
     def processImage(self, localImagePath, remoteImagePath, language):
         # Step 1: Get context for the image
         labelInfo = self.visionHandler.process_image(remoteImagePath)
 
-        # TODO: Step 3: Send context to web scraper for sentences
+        # Step 2: Pass to webscraper for sentence phrase
         sentence = self.Scraper.scrape(labelInfo[0])
 
+        # Step 3: Translate the sentence based on the phrase
         translatedLabels = list()
-        # Step 4: Send sentence/context to translator
         translatedLabels.add(translationHandler.translate(sentence, language))
 
         # GET DOWNLOADED IMAGE PATH
@@ -44,11 +31,11 @@ class Server:
         self.overlayHandler.process_image(localImagePath, translatedLabels)
 
         # TODO: Step 6: Output the image + text to speech translated text
-        self.storageHandler.putImage()
+        self.storageHandler.uploadNewPhoto(,self.storageHandle.getBucket())
         output.write(translatedLabels)
 
 
-jsonfile = 'Linguo-495a24a54222.json'
-s = Server(jsonfile)
-s.getUnprocessedFiles()
+# jsonfile = 'Linguo-495a24a54222.json'
+# s = Server(jsonfile)
+# s.getUnprocessedFiles()
 
