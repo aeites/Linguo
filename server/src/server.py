@@ -8,14 +8,20 @@ class Server:
     def __init__(self, api_key_path):
         self.api_key_path = api_key_path
 
-        self.visionHandler = VisionHandler(api_key_path)
-        self.translationHandler = TranslationHandler(api_key_path)
+        #self.visionHandler = VisionHandler(api_key_path)
+        #self.translationHandler = TranslationHandler(api_key_path)
         self.storageHandler = StorageHandler(api_key_path)
 
     #method to get files from the bucket
     def getUnprocessedFiles(self):
         # returns the file names of things to process
-        print("Unsupported Method")
+        bucket = self.storageHandler.getBucket()
+        blobs = self.storageHandler.getBlobs(bucket)
+        self.storageHandler.downloadAllBlobs(blobs)
+
+        ######
+        oneFile = input("Enter one file to download: ")
+        self.storageHandler.downloadOneBlob(bucket, oneFile)
 
     # TODO: pass in imagePath, and language from a tuple
 
@@ -42,6 +48,7 @@ class Server:
         self.storageHandler.putImage()
         output.write(translatedLabels)
 
+
         # api-endpoint
         print("Unsupported Method")
 
@@ -60,4 +67,8 @@ class Server:
         print("Unsupported method")
 
 # TODO: have a file that provides the config for processing each image
+
+jsonfile = 'Linguo-495a24a54222.json'
+s = Server(jsonfile)
+s.getUnprocessedFiles()
 
