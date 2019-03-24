@@ -8,8 +8,9 @@ class Server:
     def __init__(self, api_key_path):
         self.api_key_path = api_key_path
 
-        #self.visionHandler = VisionHandler(api_key_path)
-        #self.translationHandler = TranslationHandler(api_key_path)
+        self.visionHandler = VisionHandler(api_key_path)
+        self.translationHandler = TranslationHandler(api_key_path)
+        self.scaper = Scraper(api_key_path)
         self.storageHandler = StorageHandler(api_key_path)
 
     #method to get files from the bucket
@@ -27,9 +28,7 @@ class Server:
 
     # push the files from the get unprocessed files, processes the
     def processImage(self, imagePath, language):
-        # TODO: Step 1: Get list of all image? Maybe just one for now
-        imagePath = self.storageHandler.getSingleImage()
-        # Step 2: Get context for the image
+        # Step 1: Get context for the image
         labelInfo = self.visionHandler.process_image(imagePath)
 
         # TODO: Step 3: Send context to web scraper for sentences

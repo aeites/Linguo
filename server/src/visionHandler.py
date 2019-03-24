@@ -48,9 +48,9 @@ class VisionHandler:
 
 
 #
-#vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\vision-key.json")
+vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\vision-key.json")
 #vh = VisionHandler(r"gs:storage_photos/o/Eventbright%20Banner.jpg")
-#vh.process_image(r"gs://storage_photos/linguo_white_text-01.png")
+vh.process_image(r"gs://storage_photos/linguo_white_text-01.png")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")
 

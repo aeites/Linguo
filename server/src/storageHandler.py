@@ -44,6 +44,7 @@ class StorageHandler:
         
         blob.make_public()
 
+
     # TODO: get an image from the image path
     def getImage(self, imagePath):
         print("Return image file path?")

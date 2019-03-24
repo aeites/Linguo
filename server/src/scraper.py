@@ -18,11 +18,12 @@ class Scraper:
         soup = BeautifulSoup(site.content, "lxml")
         defs = soup.find_all('div', {'class': 'li_content'})
         print(defs[0].text)
+        return defs[0].text
 
-# testing
-path = 'C:\\Users\\kelly\\Desktop\\translate\\translate_test.json'
-# url = "https://sentence.yourdictionary.com/pencil"
-
-word = 'desk'
-s = Scraper(path)
-s.scrape(word)
+# # testing
+# path = 'C:\\Users\\kelly\\Desktop\\translate\\translate_test.json'
+# # url = "https://sentence.yourdictionary.com/pencil"
+#
+# word = 'desk'
+# s = Scraper(path)
+# s.scrape(word)
