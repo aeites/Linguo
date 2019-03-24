@@ -1,4 +1,5 @@
 import os
+import translationHandler
 
 from google.cloud import texttospeech
 
