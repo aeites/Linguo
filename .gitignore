@@ -3,3 +3,7 @@
 API_Key.txt
 request.json
 Vision_API_Test.json
+*.json
+*.jpg
+*.jfif
+*.pyc
