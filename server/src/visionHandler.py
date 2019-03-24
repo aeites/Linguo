@@ -29,16 +29,16 @@ class VisionHandler:
         response = self.client.label_detection(image=image)
         labels = response.label_annotations
 
-        print('Labels:')
-        for label in labels:
-            print(label.description + ", Score: " + str(label.score))
+        # print('Labels:')
+        # for label in labels:
+        #     print(label.description + ", Score: " + str(label.score))
 
         return labels
         # Get the top three image contexts, and their vertices positions
 
 
 #
-# vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
+vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\vision-key.json")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")

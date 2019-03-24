@@ -1,8 +1,12 @@
+from visionHandler.py  import VisionHandler
+from translationHandler.py import Translate_Handler
 # Linguo Google Cloud python server process
 
 class Server:
-    def __init__(self):
-        self.api_key = self.get_api_key()
+    def __init__(self, api_key_path):
+        self.api_key_path = api_key_path
+        self.translationHandler = TranslationHandler(api_key_path, )
+
 
     #method to get files from the bucket
     def getUnprocessedFiles(self):
