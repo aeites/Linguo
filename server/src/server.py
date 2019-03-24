@@ -8,7 +8,7 @@ class Server:
     def __init__(self, api_key_path):
         self.api_key_path = api_key_path
 
-        #self.visionHandler = VisionHandler(api_key_path)
+        self.visionHandler = VisionHandler(api_key_path)
         #self.translationHandler = TranslationHandler(api_key_path)
         self.storageHandler = StorageHandler(api_key_path)
 
@@ -17,18 +17,21 @@ class Server:
         # returns the file names of things to process
         bucket = self.storageHandler.getBucket()
         blobs = self.storageHandler.getBlobs(bucket)
-        self.storageHandler.downloadAllBlobs(blobs)
+        return bucket
 
-        ######
-        oneFile = input("Enter one file to download: ")
-        self.storageHandler.downloadOneBlob(bucket, oneFile)
+##        ######
+##        oneFile = input("Enter one file to download: ")
+##        self.storageHandler.downloadOneBlob(bucket, oneFile)
 
     # TODO: pass in imagePath, and language from a tuple
 
     # push the files from the get unprocessed files, processes the
     def processImage(self, language):
         # TODO: Step 1: Get list of all image? Maybe just one for now
-        imagePath = self.storageHandler.getSingleImage()
+        #imagePath = self.storageHandler.getSingleImage()
+
+        photoChosen = input("Enter photo to be processed: ")
+        imagePath = self.storageHandler.downloadOneBlob(photoChosen, getUnprocessedFiles())
 
         # Step 2: Get context for the image
         labelInfo = self.visionHandler.process_image(imagePath)
