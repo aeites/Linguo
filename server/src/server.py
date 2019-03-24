@@ -1,11 +1,16 @@
 from visionHandler.py  import VisionHandler
-from translationHandler.py import Translate_Handler
+from translationHandler.py import TranslationHandler
 # Linguo Google Cloud python server process
 
 class Server:
     def __init__(self, api_key_path):
         self.api_key_path = api_key_path
-        self.translationHandler = TranslationHandler(api_key_path, )
+
+        self.visionHandler = VisionHandler(api_key_path)
+        self.translationHandler = TranslationHandler(api_key_path)
+
+    def 
+
 
 
     #method to get files from the bucket
@@ -32,6 +37,7 @@ class Server:
         print("unsupported method")
 
 
+    def startProcess
     # find way to use translate API
 
 

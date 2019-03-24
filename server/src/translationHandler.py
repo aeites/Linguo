@@ -76,7 +76,6 @@ class TranslationHandler:
 
 t = TranslationHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json")
 print(t.translate('Hello, world!', 'Spanish'))
-
 # testing
 
 # text to text language codes
