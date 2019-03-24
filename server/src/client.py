@@ -41,7 +41,7 @@ file = "Eventbright Banner.jpg"
 jpgfile = Image.open(file)
 blob = Blob(file, bucket)
 with open(file, "rb") as my_file:
-    blob.upload_from_file(my_file, get_content_type(file))
+    blob.upload_from_file(file)
 ##with open(jpgfile, "rb") as my_file:
 ##    blob.upload_from_file(my_file)
 
