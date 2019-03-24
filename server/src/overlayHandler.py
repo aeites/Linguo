@@ -5,7 +5,7 @@ import os
 class OverlayHandler:
     # args: image path, text to overlay
     def add_overlay(self, image, label):
-        self.font_path = u'Lato-Regular.ttf'
+        self.font_path = u'resources/Lato-Regular.ttf'
         base = Image.open(image).convert('RGBA')
         width, height = base.size
 
