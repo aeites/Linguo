@@ -26,6 +26,9 @@ class StorageHandler:
             print(blob.path)
             blob.download_to_filename(blob.name)
 
+##    def getSingleBlob(self, bucket):
+        
+
     def downloadOneBlob(self, bucket, fileRequest):
         blob = bucket.get_blob(fileRequest)
         blob.download_to_filename("crappy.jpeg")
@@ -38,6 +41,8 @@ class StorageHandler:
         # TODO: create csv/tuple for the input?
         with open(file, "rb") as my_file:
             blob.upload_from_file(my_file)
+        
+        blob.make_public()
 
     # TODO: get an image from the image path
     def getImage(self, imagePath):
@@ -48,13 +53,13 @@ class StorageHandler:
 
         print("read config file")
 
-####COMPLETED##
-##jsonfile = 'Linguo-495a24a54222.json'
-##s = StorageHandler(jsonfile)
-##bucket = s.getBucket()
-##blobs = s.getBlobs(bucket)
-##s.downloadAllBlobs(blobs)
+##COMPLETED##
+jsonfile = 'Linguo-495a24a54222.json'
+s = StorageHandler(jsonfile)
+bucket = s.getBucket()
+blobs = s.getBlobs(bucket)
+s.downloadAllBlobs(blobs)
 
 ##TO DO##
-##file = input("Enter file name: ")
-##s.uploadNewPhoto(file, bucket)
+file = input("Enter file name: ")
+s.uploadNewPhoto(file, bucket)
