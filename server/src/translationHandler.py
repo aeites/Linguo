@@ -45,9 +45,7 @@ texttospeech = {
 class Translate_Handler:
     # create translation object
     # pass in text to translate and target language
-    def __init__(self, credentials_path, text, language):
-        self.text = text
-        self.language = language
+    def __init__(self, credentials_path):
         # instantiate client
         self.translate_client = translate.Client()
         # authentication
@@ -59,7 +57,9 @@ class Translate_Handler:
 
 
     # returns translated text
-    def translate(self):
+    def translate(self, text, language):
+        self.text = text
+        self.language = language
         translation = self.translate_client.translate(
             self.text,
             self.set_target_language()
@@ -74,44 +74,27 @@ class Translate_Handler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
+t = Translate_Handler('C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json')
+print(t.translate('Hello, world!', 'es'))
 
 # testing
-'''
+
 # text to text language codes
-testtotext = [
-    "Danish",
-    "Dutch",
-    "English",
-    "French",
-    "German",
-    "Japanese",
-    "Italian",
-    "Korean",
-    "Norwegian",
-    "Polish",
-    "Portuguese",
-    "Slovak",
-    "Russian",
-    "Spanish",
-    "Swedish",
-    "Turkish",
-    "Ukrainian"
-]
+#testtotext = ["Danish" "Dutch", "English", "French", "German", "Japanese", "Italian", "Korean", "Norwegian", "Polish", "Portuguese", "Slovak", "Russian", "Spanish", "Swedish", "Turkish", "Ukrainian"]
 
-for x in testtotext:
-    # set variables
-    path = 'C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json'
-    text = 'Hello, world'
-    lang = x
-
-    # create translation object
-    t = Translate_Handler(path, text, lang)
-
-    # run translation
-    trans = t.translate()
-
-    print(trans)                        # print translated text
-    print(t.set_target_language())      # print text-to-text code of target language
-    print(t.get_TTS_language_code())    # print text-to-speech code of target language
-    print("*****************")          # separator
-'''
+# for x in testtotext:
+#    ## set variables
+#    path = 'C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json'
+#    text = 'Hello, world'
+#    lang = x
+#
+#    ## create translation object
+#    t = Translate_Handler(path)
+#
+#    ## run translation
+#    trans = t.translate(text, lang)
+#
+#    print(trans)                        # print translated text
+#    print(t.set_target_language())      # print text-to-text code of target language
+#    print(t.get_TTS_language_code())    # print text-to-speech code of target language
+#    print("*****************")          # separator
