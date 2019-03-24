@@ -74,6 +74,10 @@ class TranslationHandler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
+    def getLanguageList(self):
+        return list(texttotext.keys())
+        
+
 ## test_path = "C:\\Users\\kelly\\Desktop\\translate\\translate_test.json"
 ## t = TranslationHandler(test_path)
 ## print(t.translate('Hello, world!', 'Spanish'))
