@@ -13,8 +13,8 @@ link = "https://sentence.yourdictionary.com/"
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(link)
 
-#wait = WebDriverWait(driver, 1000)
 
 driver.find_element_by_xpath("//*[@id=\"yd_search_bar\"]").send_keys("jobs")
 
 driver.find_element_by_xpath("//*[@id=\"searchbox\"]/div[2]/a").click()
+
