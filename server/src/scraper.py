@@ -15,7 +15,7 @@ class Scraper:
             if len(defs[i].text) < len(short):
                 short = defs[i].text
 
-        print(short)
+        #print(short)
         return(short)
 
 
