@@ -25,17 +25,16 @@ class StorageHandler:
             print(blob.name)
             print(blob.path)
             blob.download_to_filename(blob.name)
-
-##    def getSingleBlob(self, bucket):
-        
+    
 
     def downloadOneBlob(self, bucket, fileRequest):
         blob = bucket.get_blob(fileRequest)
-        blob.download_to_filename("crappy.jpeg")
-            
-##            if blob.name == fileRequest:
-##                blob.download_to_filename(blob.name)
-            
+
+        #make sure to add filetype in input
+        newTitle = input("Save file as: ")
+        blob.download_to_filename(newTitle)
+
+                       
     def uploadNewPhoto(self, file, bucket):
         blob = Blob(file, bucket)
         # TODO: create csv/tuple for the input?
@@ -43,6 +42,8 @@ class StorageHandler:
             blob.upload_from_file(my_file)
         
         blob.make_public()
+        
+        return r"gs://" + bucket.name + r"/" + file
 
 
     # TODO: get an image from the image path
@@ -63,4 +64,4 @@ s.downloadAllBlobs(blobs)
 
 ##TO DO##
 file = input("Enter file name: ")
-s.uploadNewPhoto(file, bucket)
+print(s.uploadNewPhoto(file, bucket))

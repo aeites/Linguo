@@ -19,11 +19,11 @@ class Server:
         # returns the file names of things to process
         bucket = self.storageHandler.getBucket()
         blobs = self.storageHandler.getBlobs(bucket)
-        self.storageHandler.downloadAllBlobs(blobs)
+        return bucket
 
-        ######
-        oneFile = input("Enter one file to download: ")
-        self.storageHandler.downloadOneBlob(bucket, oneFile)
+##        ######
+##        oneFile = input("Enter one file to download: ")
+##        self.storageHandler.downloadOneBlob(bucket, oneFile)
 
     # TODO: pass in imagePath, and language from a tuple
 
@@ -47,8 +47,6 @@ class Server:
         self.storageHandler.putImage()
         output.write(translatedLabels)
 
-
-# TODO: have a file that provides the config for processing each image
 
 jsonfile = 'Linguo-495a24a54222.json'
 s = Server(jsonfile)
