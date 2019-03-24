@@ -38,7 +38,7 @@ class VisionHandler:
 
 
 #
-# vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
+vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\vision-key.json")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
 # vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")

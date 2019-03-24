@@ -22,9 +22,7 @@ for blob in blobs:
     x=x+1
 
 #### Add upload photos
-encryption_key = "aa426195405adee2c8081bb9e7e74b19"
 file = "Eventbright Banner.jpg"
-##jpgfile = Image.open(file)
 blob = Blob(file, bucket)
 with open(file, "rb") as my_file:
     blob.upload_from_file(my_file)
