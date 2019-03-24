@@ -25,7 +25,11 @@ texttospeech = {
 }
 
 class AudioHandler:
-        
+    
+    def __init__(self, labels, language):
+        self.labels = labels
+        self.language  = language
+
     def produceAudio(self, labels, language):
         for i in range(0, len(labels)):
             myobj = gTTS(text=labels[i], lang=language, slow=False) 
