@@ -34,9 +34,8 @@ class Server:
         # GET DOWNLOADED IMAGE PATH
         # Step 5: Get overlay of image
         overlayImagePath = self.overlayHandler.add_overlay(localImagePath, sentence)
+        print(overlayImagePath)
 
-        # Step 6: Output the image + text to speech translated text
-        #self.storageHandler.uploadNewPhoto(overlayImagePath, self.storageHandle.getBucket())
         return (translatedLabels, overlayImagePath)
 
 
