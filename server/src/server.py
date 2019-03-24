@@ -20,7 +20,7 @@ class Server:
     # TODO: pass in imagePath, and language from a tuple
 
     # push the files from the get unprocessed files, processes the
-    def processImage(self, language):
+    def processImage(self, imagePath, language):
         # TODO: Step 1: Get list of all image? Maybe just one for now
         imagePath = self.storageHandler.getSingleImage()
         # Step 2: Get context for the image
@@ -36,7 +36,7 @@ class Server:
             translatedLabels.add(translationHandler.translate(label, language))
 
         # TODO: Step 5: Get overlay of image
-        overlayHandler.process_image(translatedLabels)
+        self.overlayHandler.process_image(imagePath, translatedLabels)
 
         # TODO: Step 6: Output the image + text to speech translated text
         self.storageHandler.putImage()
