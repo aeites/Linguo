@@ -29,9 +29,9 @@ class VisionHandler:
         response = self.client.label_detection(image=image)
         labels = response.label_annotations
 
-        print('Labels:')
-        for label in labels:
-            print(label.description + ", Score: " + str(label.score))
+        # print('Labels:')
+        # for label in labels:
+        #     print(label.description + ", Score: " + str(label.score))
 
         return labels
         # Get the top three image contexts, and their vertices positions
