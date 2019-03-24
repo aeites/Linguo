@@ -75,7 +75,7 @@ class Translate_Handler:
 
 
 # testing
-'''
+
 # text to text language codes
 testtotext = [
     "Danish",
@@ -113,4 +113,4 @@ for x in testtotext:
     print(t.set_target_language())      # print text-to-text code of target language
     print(t.get_TTS_language_code())    # print text-to-speech code of target language
     print("*****************")          # separator
-'''
+

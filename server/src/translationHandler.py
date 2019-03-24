@@ -46,10 +46,10 @@ class Translate_Handler:
     # create translation object
     # pass in text to translate and target language
     def __init__(self, credentials_path):
-        # instantiate client
-        self.translate_client = translate.Client()
         # authentication
         self.authenticate(credentials_path)
+        # instantiate client
+        self.translate_client = translate.Client()
 
     # sets target language code
     def set_target_language(self):
@@ -74,22 +74,24 @@ class Translate_Handler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
-t = Translate_Handler('C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json')
-print(t.translate('Hello, world!', 'es'))
+t = Translate_Handler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json")
+print(t.translate('Hello, world!', 'Spanish'))
 
 # testing
 
 # text to text language codes
-#testtotext = ["Danish" "Dutch", "English", "French", "German", "Japanese", "Italian", "Korean", "Norwegian", "Polish", "Portuguese", "Slovak", "Russian", "Spanish", "Swedish", "Turkish", "Ukrainian"]
-
+# testtotext = ["Danish" "Dutch", "English", "French", "German", "Japanese", "Italian", "Korean", "Norwegian", "Polish", "Portuguese", "Slovak", "Russian", "Spanish", "Swedish", "Turkish", "Ukrainian"]
+#
 # for x in testtotext:
 #    ## set variables
-#    path = 'C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json'
+#    #path = 'C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json'
 #    text = 'Hello, world'
 #    lang = x
 #
+#    path = r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json"
+#
 #    ## create translation object
-#    t = Translate_Handler(path)
+#    t = Translate_Handler(r"D:\Users\Chana-PC\Documents\Linguo\server\src\translate-key.json")
 #
 #    ## run translation
 #    trans = t.translate(text, lang)
