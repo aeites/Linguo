@@ -37,10 +37,10 @@ class VisionHandler:
         # Get the top three image contexts, and their vertices positions
 
 
-
-vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
-vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
-vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
-vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")
+#
+# vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")
 
 
