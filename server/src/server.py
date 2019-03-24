@@ -1,7 +1,4 @@
 # Linguo Google Cloud python server process
-import requests
-from google.cloud import vision
-from google.cloud.vision import types
 
 class Server:
     def __init__(self):
@@ -28,7 +25,7 @@ class Server:
 
 
     def set_api_key(self):
-
+        print("unsupported method")
 
 
     # find way to use translate API

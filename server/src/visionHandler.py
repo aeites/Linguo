@@ -7,7 +7,6 @@ from google.cloud.vision import types
 class VisionHandler:
     def __init__(self, credentials_path):
         self.authenticate(credentials_path)
-
         # Instantiates a client
         self.client = vision.ImageAnnotatorClient()
 
@@ -32,10 +31,16 @@ class VisionHandler:
 
         print('Labels:')
         for label in labels:
-            print(label.description)
+            print(label.description + ", Score: " + str(label.score))
+
+        return labels
+        # Get the top three image contexts, and their vertices positions
 
 
-vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
-vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
+#
+# vh = VisionHandler(r"D:\Users\Chana-PC\Documents\Linguo\vision-key.json")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\wakeupcat.jpg")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_image.jpg")
+# vh.process_image(r"D:\Users\Chana-PC\Documents\Linguo\server\src\resources\office_test2.jfif")
 
 

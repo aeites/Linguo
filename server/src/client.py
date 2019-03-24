@@ -1,9 +1,8 @@
 #client side
 import argparse
 from google.cloud import storage
-
-
-
+from google.cloud.storage import Blob
+from PIL import Image
 
 
 
@@ -31,16 +30,18 @@ print("")
 x=1
 for blob in blobs:
     print(blob.name)
-    filename = "blob" + str(x) + ".jpeg"
-    blob.download_to_filename(filename)
+    #filename = "blob" + str(x) + ".jpeg"
+    blob.download_to_filename(blob.name)
     x=x+1
 
-##for blob in blobs:
-##    print(blob.name)
-##    blob.download_to_file(blob)
-##    blob._do_download(
 
-### Add upload photos
-
-
+#### Add upload photos
+encryption_key = "aa426195405adee2c8081bb9e7e74b19"
+file = "Eventbright Banner.jpg"
+jpgfile = Image.open(file)
+blob = Blob(file, bucket)
+with open(file, "rb") as my_file:
+    blob.upload_from_file(file)
+##with open(jpgfile, "rb") as my_file:
+##    blob.upload_from_file(my_file)
 
