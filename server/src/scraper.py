@@ -5,7 +5,8 @@ import os
 
 class Scraper:
     def scrape(self, keyword):
-        url = "https://sentence.yourdictionary.com/" + keyword
+
+        url = "https://sentence.yourdictionary.com/" + keyword.replace(" ", "%20")
         site = requests.get(url)
         soup = BeautifulSoup(site.content, "lxml")
         defs = soup.find_all('div', {'class': 'li_content'})

@@ -23,8 +23,18 @@ class Server:
         print(labelInfo[0].description)
 
         # Step 2: Pass to webscraper for sentence phrase
-        sentence = self.scraper.scrape(labelInfo[0].description)
-        print(sentence)
+        i = 0
+        success = True
+        while(success):
+            try:
+                sentence = self.scraper.scrape(labelInfo[i].description)
+                success = False
+                print(sentence)
+            except IndexError:
+                i += 1
+                if(i >= len(labelInfo)):
+                    raise Exception("Generated context does not support sentence generation!")
+
 
         # Step 3: Translate the sentence based on the phrase
         translatedLabels = list()
@@ -43,7 +53,7 @@ class Server:
 # s = Server(jsonfile)
 # s.getUnprocessedFiles()
 
-api_key = r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json"
+api_key = r"api-key.json"
 sh = StorageHandler(api_key)
 localPath = r"cat.jpg"
 remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
