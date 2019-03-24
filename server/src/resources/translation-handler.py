@@ -18,9 +18,11 @@ class Translate_Handler:
         # Set the path to the credentials
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
-t = Translate_Handler('C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json')
 
-text = 'Hello, world'
-lang = 'sp'
+# testing variables
+#t = Translate_Handler('C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json')
 
-print(t.translate(text, lang))
+#text = 'Hello, world'
+#lang = 'sp'
+
+#print(t.translate(text, lang))
