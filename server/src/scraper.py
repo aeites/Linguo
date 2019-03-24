@@ -11,7 +11,14 @@ class Scraper:
         defs = soup.find_all('div', {'class': 'li_content'})
 
         short = defs[0].text
-        for i in range(0, 4):
+
+        range_list = len(defs)
+        if range_list > 4:
+            it = 4
+        else:
+            it = range_list
+            
+        for i in range(0, it):
             if len(defs[i].text) < len(short):
                 short = defs[i].text
 
@@ -20,7 +27,7 @@ class Scraper:
 
 
 # testing
-# word = 'flag'
+#word = 'flag'
 
-# s = Scraper()                ## create Scraper
-# sentence = s.scrape(word)    ## return
+#s = Scraper()                ## create Scraper
+#sentence = s.scrape(word)    ## return
