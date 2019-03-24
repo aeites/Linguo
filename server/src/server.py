@@ -33,21 +33,21 @@ class Server:
 
         # GET DOWNLOADED IMAGE PATH
         # Step 5: Get overlay of image
-        overlayImagePath = self.overlayHandler.add_overlay(localImagePath, translatedLabels[0])
-        print(overlayImagePath)
+        #overlayImagePath = self.overlayHandler.add_overlay(localImagePath, translatedLabels[0])
+        #print(overlayImagePath)
 
-        return (translatedLabels, overlayImagePath)
+        return (translatedLabels, "" )
 
 
 # jsonfile = 'Linguo-495a24a54222.json'
 # s = Server(jsonfile)
 # s.getUnprocessedFiles()
 
-api_key = r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json"
-sh = StorageHandler(api_key)
-localPath = r"cat.jpg"
-remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
+#api_key = r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json"
+# sh = StorageHandler(api_key)
+# localPath = r"cat.jpg"
+# remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
 
-s = Server(api_key)
+# s = Server(api_key)
 
-s.processImage(localPath, remotePath, "spanish")
+# s.processImage(localPath, remotePath, "spanish")
