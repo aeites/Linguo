@@ -75,7 +75,7 @@ class Translate_Handler:
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
 
 t = Translate_Handler('C:\\Users\\kelly\\Downloads\\My First Project-39acdbd3bbc1.json')
-print(t.translate('Hello, world!', 'es'))
+print(t.translate('Hello, world!', 'Spanish'))
 
 # testing
 
