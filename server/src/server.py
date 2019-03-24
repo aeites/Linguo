@@ -18,24 +18,35 @@ class Server:
     def processImage(self, localImagePath, remoteImagePath, language):
         # Step 1: Get context for the image
         labelInfo = self.visionHandler.process_image(remoteImagePath)
+        print(labelInfo[0].description)
 
         # Step 2: Pass to webscraper for sentence phrase
-        sentence = self.Scraper.scrape(labelInfo[0])
+        sentence = self.scraper.scrape(labelInfo[0].description)
+        print(sentence)
 
         # Step 3: Translate the sentence based on the phrase
         translatedLabels = list()
-        translatedLabels.add(translationHandler.translate(sentence, language))
+        translatedLabels.append(self.translationHandler.translate(sentence, language))
+        print(translatedLabels)
 
         # GET DOWNLOADED IMAGE PATH
         # TODO: Step 5: Get overlay of image
-        self.overlayHandler.process_image(localImagePath, translatedLabels)
+        #overlayImagePath = self.overlayHandler.process_image(localImagePath, translatedLabels)
 
         # TODO: Step 6: Output the image + text to speech translated text
-        self.storageHandler.uploadNewPhoto(,self.storageHandle.getBucket())
-        output.write(translatedLabels)
+        #self.storageHandler.uploadNewPhoto(overlayImagePath, self.storageHandle.getBucket())
+        return translatedLabels,
 
 
 # jsonfile = 'Linguo-495a24a54222.json'
 # s = Server(jsonfile)
 # s.getUnprocessedFiles()
 
+api_key = r"D:\Users\Chana-PC\Documents\Linguo\server\src\api-key.json"
+sh = StorageHandler(api_key)
+localPath = r"cat.jpg"
+remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
+
+s = Server(api_key)
+
+s.processImage(localPath, remotePath, "spanish")
