@@ -1,6 +1,7 @@
 from visionHandler import VisionHandler
 from translationHandler import TranslationHandler
 from storageHandler import StorageHandler
+from scraper import Scraper
 
 # Linguo Google Cloud python server process
 
@@ -9,12 +10,8 @@ class Server:
         self.api_key_path = api_key_path
 
         self.visionHandler = VisionHandler(api_key_path)
-<<<<<<< HEAD
-        #self.translationHandler = TranslationHandler(api_key_path)
-=======
         self.translationHandler = TranslationHandler(api_key_path)
-        self.scaper = Scraper(api_key_path)
->>>>>>> f72f5d49ad584b65d759468a6dac24262e68cd73
+        self.scraper = Scraper()
         self.storageHandler = StorageHandler(api_key_path)
 
     #method to get files from the bucket
@@ -31,55 +28,25 @@ class Server:
     # TODO: pass in imagePath, and language from a tuple
 
     # push the files from the get unprocessed files, processes the
-<<<<<<< HEAD
-    def processImage(self, language):
-        # TODO: Step 1: Get list of all image? Maybe just one for now
-        #imagePath = self.storageHandler.getSingleImage()
-
-        photoChosen = input("Enter photo to be processed: ")
-        imagePath = self.storageHandler.downloadOneBlob(photoChosen, getUnprocessedFiles())
-
-        # Step 2: Get context for the image
-=======
-    def processImage(self, imagePath, language):
+    def processImage(self, localImagePath, remoteImagePath, language):
         # Step 1: Get context for the image
->>>>>>> f72f5d49ad584b65d759468a6dac24262e68cd73
-        labelInfo = self.visionHandler.process_image(imagePath)
+        labelInfo = self.visionHandler.process_image(remoteImagePath)
 
         # TODO: Step 3: Send context to web scraper for sentences
+        sentence = self.Scraper.scrape(labelInfo[0])
 
-        # TODO: Step 3.1: process the label info
-        processedLabels = labelInfo  # test code for now
         translatedLabels = list()
         # Step 4: Send sentence/context to translator
-        for label in processedLabels:
-            translatedLabels.add(translationHandler.translate(label, language))
+        translatedLabels.add(translationHandler.translate(sentence, language))
 
+        # GET DOWNLOADED IMAGE PATH
         # TODO: Step 5: Get overlay of image
-        overlayHandler.process_image(translatedLabels)
+        self.overlayHandler.process_image(localImagePath, translatedLabels)
 
         # TODO: Step 6: Output the image + text to speech translated text
         self.storageHandler.putImage()
         output.write(translatedLabels)
 
-        # api-endpoint
-        print("Unsupported Method")
-
-
-    # Method to draw the text onto the image
-    def drawText(self, image, coordinates, text):
-        print("Unsupported Method")
-
-
-    def set_api_key(self):
-        print("unsupported method")
-
-
-    def startProcess(self):
-    # find way to use translate API
-        print("Unsupported method")
-
-# TODO: have a file that provides the config for processing each image
 
 jsonfile = 'Linguo-495a24a54222.json'
 s = Server(jsonfile)
