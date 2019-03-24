@@ -25,9 +25,18 @@ class StorageHandler:
             
     def uploadNewPhoto(self, file, bucket):
         blob = Blob(file, bucket)
+        # TODO: create csv/tuple for the input?
         with open(file, "rb") as my_file:
             blob.upload_from_file(my_file)
 
+    # TODO: get an image from the image path
+    def getImage(self, imagePath):
+        print("Return image file path?")
+
+    # TODO: draft method to read the configuration file for the processed images
+    def readConfig(self, configPath):
+
+        print("read config file")
 
 
 jsonfile = 'Linguo-495a24a54222.json'
