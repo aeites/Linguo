@@ -4,25 +4,23 @@ from bs4 import BeautifulSoup
 import os
 
 class Scraper:
-    def __init__(self, credentials_path):
-        # authentication
-        self.authenticate(credentials_path)
-
-    def authenticate(self, credentials_path):
-        # Set the path to the credentials
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credentials_path
-
     def scrape(self, keyword):
         url = "https://sentence.yourdictionary.com/" + keyword
         site = requests.get(url)
         soup = BeautifulSoup(site.content, "lxml")
         defs = soup.find_all('div', {'class': 'li_content'})
-        print(defs[0].text)
+
+        short = defs[0].text
+        for i in range(0, 4):
+            if len(defs[i].text) < len(short):
+                short = defs[i].text
+
+        print(short)
+        return(short)
+
 
 # testing
-path = 'C:\\Users\\kelly\\Desktop\\translate\\translate_test.json'
-# url = "https://sentence.yourdictionary.com/pencil"
+# word = 'flag'
 
-word = 'desk'
-s = Scraper(path)
-s.scrape(word)
+# s = Scraper()                ## create Scraper
+# sentence = s.scrape(word)    ## return
