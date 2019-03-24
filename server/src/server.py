@@ -43,7 +43,7 @@ class Server:
 
         # GET DOWNLOADED IMAGE PATH
         # Step 5: Get overlay of image
-        overlayImagePath = self.overlayHandler.add_overlay(localImagePath, translatedLabels[0])
+        overlayImagePath = self.overlayHandler.add_overlay(localImagePath, sentence)
         print(overlayImagePath)
 
         return (translatedLabels, overlayImagePath)
@@ -53,7 +53,11 @@ class Server:
 # s = Server(jsonfile)
 # s.getUnprocessedFiles()
 
+<<<<<<< HEAD
 api_key = r"api-key.json"
+=======
+api_key = r"C:\Users\kelly\Desktop\translate\translate_test.json"
+>>>>>>> 4adbcc7f3cd189f287d3871c27953b58852b1e7e
 sh = StorageHandler(api_key)
 localPath = r"cat.jpg"
 remotePath = sh.uploadNewPhoto(localPath, sh.getBucket())
