@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
 from google.cloud import storage
 from google.cloud import vision
 from gtts import gTTS
@@ -32,14 +32,14 @@ vh = VisionHandler("Linguo-495a24a54222.json")
 
 for blob in blobs:
     print(blob.name)
-    filename = "blob" + str(x) + ".jpeg"
-    blob.download_to_filename(filename)
-    labelDict = vh.process_image(filename)
+    
+    blob.download_to_filename(blob.name)
+    labelDict = vh.process_image(blob.name)
     for i in range(0,3):
          textList.append(labelDict[i].description)
         
     print(textList)
-    base = Image.open(filename).convert('RGBA')
+    base = Image.open(blob.name).convert('RGBA')
     break
 
     

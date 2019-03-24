@@ -15,7 +15,10 @@ class Server:
     #method to get files from the bucket
     def getUnprocessedFiles(self):
         # returns the file names of things to process
-        print("Unsupported Method")
+        bucket = self.storageHandler.getBucket()
+        blobs = self.storageHandler.getBlobs(bucket)
+        self.storageHandler.downloadAllBlobs(blobs)
+
 
     # TODO: pass in imagePath, and language from a tuple
 
@@ -23,6 +26,7 @@ class Server:
     def processImage(self, language):
         # TODO: Step 1: Get list of all image? Maybe just one for now
         imagePath = self.storageHandler.getSingleImage()
+
         # Step 2: Get context for the image
         labelInfo = self.visionHandler.process_image(imagePath)
 

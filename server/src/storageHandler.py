@@ -41,8 +41,8 @@ class StorageHandler:
 
 jsonfile = 'Linguo-495a24a54222.json'
 s = StorageHandler(jsonfile)
-bucket = s.defineBucket()
-blobs = s.defineBlobs(bucket)
+bucket = s.getBucket()
+blobs = s.getBlobs(bucket)
 s.downloadAllBlobs(blobs)
 file = input("Enter file name: ")
 s.uploadNewPhoto(file, bucket)
