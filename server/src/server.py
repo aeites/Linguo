@@ -23,8 +23,18 @@ class Server:
         print(labelInfo[0].description)
 
         # Step 2: Pass to webscraper for sentence phrase
-        sentence = self.scraper.scrape(labelInfo[0].description)
-        print(sentence)
+        i = 0
+        success = True
+        while(success):
+            try:
+                sentence = self.scraper.scrape(labelInfo[i].description)
+                success = False
+                print(sentence)
+            except IndexError:
+                i += 1
+                if(i >= len(labelInfo)):
+                    raise Exception("Generated context does not support sentence generation!")
+
 
         # Step 3: Translate the sentence based on the phrase
         translatedLabels = list()
@@ -33,10 +43,13 @@ class Server:
 
         # GET DOWNLOADED IMAGE PATH
         # Step 5: Get overlay of image
-        #overlayImagePath = self.overlayHandler.add_overlay(localImagePath, translatedLabels[0])
-        #print(overlayImagePath)
+        # try:
+        #     overlayImagePath = self.overlayHandler.add_overlay(localImagePath, sentence)
+        # except: 
+        #     print("")
+        # print(overlayImagePath)
 
-        return (translatedLabels, "" )
+        return (translatedLabels, "")
 
 
 # jsonfile = 'Linguo-495a24a54222.json'
